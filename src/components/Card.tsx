@@ -16,7 +16,7 @@ const Card: React.FC<CardProps> = ({ value, suit, className = '', size = 'lg' })
   const isFaceCard = ['J', 'Q', 'K'].includes(value);
   const isCorner = value === 'Corner';
   const [imgSrc, setImgSrc] = useState(
-    isCorner ? '/cards/joker.png' : `/cards/${value}${suit}.png`
+    isCorner ? '/cards/joker.png' : `/cards/${value}${suit}.jpg`
   );
 
   // Render Corner or Face Card with Image
@@ -27,7 +27,7 @@ const Card: React.FC<CardProps> = ({ value, suit, className = '', size = 'lg' })
           src={imgSrc}
           alt={`${value}${suit || ''}`}
           fill
-          className="object-contain p-0 rounded-xl"
+          className="object-contain p-0 rounded-xl h-full w-full"
           quality={100}
           priority={size === 'xl'}
           onError={() => {
@@ -159,14 +159,55 @@ const renderCenterSymbols = (value: CardValue, symbol: string, size: string) => 
       );
     case '10':
       return (
-        <div className="flex flex-col justify-between h-[80%] w-full relative">
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className="flex justify-around">
-              {span(i * 2)}
-              {span(i * 2 + 1)}
-            </div>
-          ))}
-        </div>
+        <div className="flex flex-col justify-between h-[70%] w-full relative gap-1">
+  {/* Top 5-card diamond layout */}
+<div className="h-[40%] grid grid-cols-2 gap-x-1 gap-y-0 relative">
+  {/* Diamond positions (1-4) */}
+  <div className="flex justify-center items-center">
+    <span className="text-3xl">♠</span>
+  </div>
+  <div className="flex justify-center items-center">
+    <span className="text-3xl">♠</span>
+  </div>
+  <div className="flex justify-center items-center">
+    <span className="text-3xl">♠</span>
+  </div>
+  <div className="flex justify-center items-center">
+    <span className="text-3xl">♠</span>
+  </div>
+  <div className="flex justify-center items-center">
+    <span className="text-3xl">♠</span>
+  </div>
+
+  {/* Center symbol (5) */}
+  <div className="absolute top-4/6 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+    <span className="text-3xl">♠</span>
+  </div>
+</div>
+
+
+  {/* Bottom 5-card diamond layout (inverted) */}
+  <div className="h-[48%] grid grid-cols-2 gap-1 relative">
+    {/* Inverted diamond positions (6-9) */}
+    <div className="flex justify-center items-start">
+      <span className="text-3xl">♠</span>
+    </div>
+    <div className="flex justify-center items-start">
+      <span className="text-3xl">♠</span>
+    </div>
+    <div className="flex justify-center items-end">
+      <span className="text-3xl">♠</span>
+    </div>
+    <div className="flex justify-center items-end">
+      <span className="text-3xl">♠</span>
+    </div>
+    
+    {/* Center symbol (10) */}
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <span className="text-3xl">♠</span>
+    </div>
+  </div>
+</div>
       );
     case 'J':
     case 'Q':
