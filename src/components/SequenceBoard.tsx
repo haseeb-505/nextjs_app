@@ -18,11 +18,11 @@ const SequenceBoard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-green-800 p-4">
+    <div className="min-h-screen bg-green-800 p-0">
       <div className="max-w-[1800px] mx-auto">
         {/* Game Header */}
-        <div className="text-center mb-4">
-          <h1 className="text-5xl font-bold text-white mb-4">SEQUENCE</h1>
+        <div className="text-center mb-1">
+          <h1 className="text-5xl font-bold text-white pt-4 mb-0.5">SEQUENCE</h1>
           <div className="text-2xl text-yellow-200">
             <span className="mr-48">TWO EYED JACKS ARE WILD</span>
             <span>ONE EYED JACKS REMOVE</span>
@@ -30,7 +30,7 @@ const SequenceBoard = () => {
         </div>
 
         {/* Game Board */}
-        <div className="bg-green-700 rounded-xl shadow-2xl">
+        <div className="bg-green-800 rounded-xl shadow-2xl">
           <div className="grid grid-cols-10 gap-2">
             {boardLayout.map((row, rowIndex) => (
               <React.Fragment key={`row-${rowIndex}`}>
@@ -73,12 +73,12 @@ const SequenceBoard = () => {
 
         {/* Footer */}
         
-        <div className="text-center mt-4">
-          <div className="text-2xl mb-4 text-yellow-200 rotate-180">
+        <div className="text-center mt-2">
+          <div className="text-2xl mb-0.5 text-yellow-200 rotate-180">
             <span className="mr-48">TWO EYED JACKS ARE WILD</span>
             <span>ONE EYED JACKS REMOVE</span>
           </div>
-          <h1 className="text-5xl font-bold text-white rotate-180">SEQUENCE</h1>
+          <h1 className="text-5xl pt-4 font-bold text-white rotate-180">SEQUENCE</h1>
         </div>
       </div>
     </div>

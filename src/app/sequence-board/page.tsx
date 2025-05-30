@@ -18,11 +18,11 @@ function SequenceBoardPage() {
   }
 
   return (
-    <div className="p-4">
+    <div className="p-0">
       <h1 className="text-3xl text-center font-bold mt-12 mb-4">Sequence Board</h1>
 
       {/* This is the part you want to export */}
-      <div ref={boardRef} className="bg-white shadow-2xl rounded-xl p-4">
+      <div ref={boardRef} className="bg-green-800 shadow-2xl rounded-xl px-6">
         <SequenceBoard />
       </div>
 
