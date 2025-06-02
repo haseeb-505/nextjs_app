@@ -2,7 +2,6 @@ import FeaturedCourses from "@/components/FeaturedCourses";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import Instructors from "@/components/Instructors";
-import SequenceBoard from "@/components/SequenceBoard";
 import MusicSchoolTestimonials from "@/components/TestimonialCards";
 import UpComingWebinars from "@/components/UpComingWebinars";
 

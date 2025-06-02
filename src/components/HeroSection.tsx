@@ -16,7 +16,7 @@ function HeroSection() {
         >Master the art of music!</h1>
         <p
             className='mt-4 font-normal text-base md:text-lg text-neutral-300 max-w-lg mx-auto'
-        >Join our comprehensive music courses and elevate your musical skills. Whether you're a beginner or looking to refine your talents, "Master the art of Music!" is here for you</p>
+        >Join our comprehensive music courses and elevate your musical skills. Whether you are a beginner or looking to refine your talents, &quot;Master the art of Music!&quot; is here for you</p>
         <div className="mt-4">
             <Link href={"/courses"}>
             <Button

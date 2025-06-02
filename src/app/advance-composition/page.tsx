@@ -1,10 +1,16 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import coursesData from "@/data/music_courses.json";
-// import { div, h4 } from "motion/react-client";
 import { Course } from "@/components/FeaturedCourses";
+
+type ImageProp = {
+  src: string;
+  height: number;
+  width: number;
+}
 
 function page() {
   return (

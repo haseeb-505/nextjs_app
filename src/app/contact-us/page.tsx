@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/Footer";
 import React from "react";
 import { useState } from "react";
 import { Meteors } from "@/components/ui/meteors";
