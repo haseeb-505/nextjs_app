@@ -10,12 +10,12 @@ function page() {
   return (
     <div className="min-h-screen bg-black py-12 pt-36">
       <h1 className="text-lg md:text-7xl text-center font-sans font-bold mb-8 text-white">
-        All Courses ({coursesData.courses.length})
+        Songwriting Courses ({coursesData.courses.filter((course: Course) => course.slug.includes("songwriting")).length})
       </h1>
       <div className="flex flex-wrap justify-center">
-        {coursesData.courses.map((course: Course, index) => (
+        {coursesData.courses.filter((course: Course) => course.slug.includes("songwriting")).map((course: Course, index) => (
           <CardContainer className="inter-var m-4" key={index}>
-            <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
+            <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border  ">
               <CardItem
                 translateZ="50"
                 className="text-xl font-bold text-neutral-600 dark:text-white"
@@ -38,25 +38,7 @@ function page() {
                   alt={course.slug}
                 />
               </CardItem>
-              <div className="flex justify-between items-center mt-10">
-                <CardItem
-                  translateZ={20}
-                  as="a"
-                  href="https://twitter.com/mannupaaji"
-                  target="__blank"
-                  className="px-4 py-2 rounded-xl text-xs font-normal dark:text-white"
-                >
-                  {course.slug}
-                </CardItem>
-                <CardItem
-                  translateZ={20}
-                  as="button"
-                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-                >
-                  By: {course.instructor}
-                </CardItem>
-              </div>
-              <div className="flex justify-between items-center mt-5">
+              <div className="flex justify-between items-center mt-20">
                 <CardItem
                   translateZ={20}
                   as="a"
