@@ -3,13 +3,14 @@
 import Footer from "@/components/Footer";
 import React from "react";
 import { useState } from "react";
+import { Meteors } from "@/components/ui/meteors";
 
 type FormData = {
   email: string;
   message: string;
 };
 
-function page() {
+function Page() {
   const [formData, setFormData] = useState<FormData>({
     email: "",
     message: "",
@@ -71,8 +72,9 @@ function page() {
         </form>
       </div>
       {/* <Footer /> */}
+      <Meteors number={20} />
     </div>
   );
 }
 
-export default page;
+export default Page;
