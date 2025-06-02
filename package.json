@@ -1,4 +1,5 @@
 {
+  "homepage": "https://haseeb-505.github.io/nextjs_app",
   "name": "nextjs_app",
   "version": "0.1.0",
   "private": true,
@@ -6,7 +7,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export",
+    "build:gh": "next build && next export -o docs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

@@ -16,7 +16,7 @@ export const Meteors = ({
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+  });
 
   if (!mounted) return null;
 
