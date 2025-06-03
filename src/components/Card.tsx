@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
-type Suit = "S" | "H" | "D" | "C";
+type Suit = "S" | "H" | "D" | "C" | "J1" | "J2" | "J3" | "J4";
 type CardValue =
   | "A"
   | "2"
@@ -17,7 +17,10 @@ type CardValue =
   | "J"
   | "Q"
   | "K"
-  | "Corner";
+  | "CornerJ1"
+  | "CornerJ2"
+  | "CornerJ3"
+  | "CornerJ4";
 
 interface CardProps {
   value: CardValue;
@@ -32,10 +35,28 @@ const Card: React.FC<CardProps> = ({
   className = "",
   size = "lg",
 }) => {
-  const isFaceCard = ["J", "Q", "K"].includes(value);
-  const isCorner = value === "Corner";
+  const validSuits: Suit[] = ['S', 'H', 'D', 'C', 'J1', 'J2', 'J3', 'J4'];
+  const isFaceCard = ['J', 'Q', 'K'].includes(value);
+  const isCorner = value.startsWith('Corner');
+
+  // Validate suit for non-face and non-corner cards
+  if (!isFaceCard && !isCorner && suit && !validSuits.includes(suit)) {
+    console.error(`Invalid suit: ${suit} for card ${value}${suit}`);
+    return null; // Or render a placeholder
+  }
+
+  const getCornerImage = (cornerValue: string) => {
+  switch(cornerValue) {
+    case "CornerJ1": return "/cards/cornerj1.png";
+    case "CornerJ2": return "/cards/cornerj2.jpg";
+    case "CornerJ3": return "/cards/cornerj3.png";
+    case "CornerJ4": return "/cards/cornerj4.jpg";
+    default: return "/cards/joker.jpg";
+    }
+  };
+
   const [imgSrc, setImgSrc] = useState(
-    isCorner ? "/cards/joker.png" : `/cards/${value}${suit}.jpg`
+    isCorner ? getCornerImage(value) : `/cards/${value}${suit}.jpg`
   );
 
   // Render Corner or Face Card with Image
@@ -115,7 +136,9 @@ const getSizeClasses = (size: string) => {
 };
 
 const getSuitSymbol = (suit: Suit) => {
-  const symbols = { S: "♠", H: "♥", D: "♦", C: "♣" };
+  const symbols: Record<Suit, string> = { 
+    S: "♠", H: "♥", D: "♦", C: "♣", 
+    J1: '🃏', J2: '🃏', J3: '🃏', J4: '🃏' };
   return symbols[suit];
 };
 
